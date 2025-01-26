@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
+import AuthContext from "../../Auth/AuthContext";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
 
     const [error, setError] = useState({});
+    const navigate = useNavigate();
+    const { createUser, setUser, updateProfileUser, loading } =
+      useContext(AuthContext);
 
     const handleRegister=e=>{
       e.preventDefault();
@@ -27,6 +32,36 @@ const Register = () => {
         });
         return;
       }
+
+      // create user
+      createUser(email, password)
+        .then((result) => {
+          const user = result.user;
+          console.log(user);
+          updateProfileUser({
+            displayName: name,
+            photoURL: photo,
+          }).then(() => {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: `welcome ${user.displayName}`,
+              showConfirmButton: false,
+              timer: 1000,
+            });
+            setUser(user);
+            loading(true);
+          });
+          navigate("/");
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: `${error.message}`,
+            text: "Something went wrong!",
+          });
+          // console.log(error);
+        });
     }
     return (
       <div className="hero bg-gradient-to-r from-indigo-600 to-blue-500 min-h-screen">
