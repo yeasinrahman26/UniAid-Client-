@@ -3,21 +3,25 @@ import { Link, NavLink } from "react-router-dom";
 const NavBar = () => {
   const links = (
     <>
-      <li>
+      <li className="font-semibold">
         <NavLink to={"/"}>Home</NavLink>
       </li>
 
       <li>
-        <NavLink to={"/allScholarship"}>All Scholarship</NavLink>
+        <NavLink className="font-semibold" to={"/allScholarship"}>
+          All Scholarship
+        </NavLink>
       </li>
       <li>
-        <Link to={"/dashBoard"}>User Dashboard</Link>
+        <Link className="font-semibold" to={"/dashBoard"}>
+          User Dashboard
+        </Link>
       </li>
     </>
   );
 
   return (
-    <div className="navbar bg-base-300 shadow-sm">
+    <div className="navbar bg-gray-300 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +42,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm bg-gray-300 dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -50,8 +54,13 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn mr-4">Button</a>
+      <div className="navbar-end mr-4">
+        <div className="space-x-1">
+          <button className="btn text-lg hover:text-blue-700 font-normal text-black btn-link">
+            Register
+          </button>
+          <button className="btn btn-primary">Login</button>
+        </div>
       </div>
     </div>
   );
