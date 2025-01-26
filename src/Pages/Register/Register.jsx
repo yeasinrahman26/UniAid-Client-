@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 
 const Register = () => {
@@ -95,13 +96,17 @@ const Register = () => {
                 </button>
               </div>
             </form>
-            <div className="divider">Or</div>
             <h1 className="text-center pb-5 font-semibold">
               Already have an Account?
               <Link to="/login" className="px-1 text-red-600 font-bold">
                 Login
               </Link>
             </h1>
+            <div className="divider">Or</div>
+
+            <div className="mx-auto pb-5">
+              <GoogleLogin></GoogleLogin>
+            </div>
           </div>
         </div>
       </div>

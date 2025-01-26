@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import GoogleLogin from "../GoogleLogin/GoogleLogin";
 
 
 const Login = () => {
@@ -14,7 +15,7 @@ const Login = () => {
     return (
       <div className="hero bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen">
         <Helmet>
-          <title>BookHub || Login</title>
+          <title>UniAid || Login</title>
         </Helmet>
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center "></div>
@@ -53,7 +54,6 @@ const Login = () => {
                 </button>
               </div>
             </form>
-            <div className="divider">Or</div>
             <h1 className="text-center pb-5 font-semibold">
               {" "}
               Don`t have an Account ?{" "}
@@ -61,9 +61,11 @@ const Login = () => {
                 Register
               </Link>
             </h1>
-            {/* <div className="mx-auto pb-5">
+            <div className="divider">Or</div>
+
+            <div className="mx-auto pb-5">
               <GoogleLogin></GoogleLogin>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
