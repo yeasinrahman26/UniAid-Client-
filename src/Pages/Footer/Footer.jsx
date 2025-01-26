@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-      <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
-        <aside>
+      <footer className="flex justify-around items-center sm:footer-horizontal bg-neutral text-neutral-content p-10">
+        <div>
           <Link to={"/"} className=" font-bold text-2xl">
             UniAid
           </Link>
@@ -13,8 +13,8 @@ const Footer = () => {
             <br />
             Providing reliable Scholarship since 1992
           </p>
-        </aside>
-        <nav>
+        </div>
+        <div>
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
             <a>
@@ -51,7 +51,7 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-        </nav>
+        </div>
       </footer>
     );
 };
