@@ -46,13 +46,13 @@ const HowWeWork = () => {
     <section className="py-12 mb-16  px-6 md:px-12 bg-gray-300">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          How It Works
+          How UniAid Works
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
           {steps.map((step) => (
             <div
               key={step.id}
-              className="flex flex-col hover:mt-2 items-center bg-white p-6 rounded-lg shadow-md"
+              className="flex flex-col hover:pt-2 items-center bg-white p-6 rounded-lg shadow-md"
             >
               <div className="text-4xl mb-4">{step.icon}</div>
               <h3 className="text-xl font-semibold text-gray-700">

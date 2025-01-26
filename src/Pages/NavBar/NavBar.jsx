@@ -56,9 +56,11 @@ const NavBar = () => {
       </div>
       <div className="navbar-end mr-4">
         <div className="space-x-1">
-          <button className="btn text-lg hover:text-blue-700 font-normal text-black btn-link">
-            Register
-          </button>
+          <Link to={"register"}>
+            <button className="btn text-lg hover:text-blue-700 font-normal text-black btn-link">
+              Register
+            </button>
+          </Link>
           <button className="btn btn-primary">Login</button>
         </div>
       </div>

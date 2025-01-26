@@ -17,7 +17,7 @@ const AboutSection = () => {
             Our system integrates effortlessly with other EduTech solutions,
             simplifies application workflows, eliminates redundancies, and
             ensures transparency. By enabling direct disbursement of funds to
-            students' accounts, UniAid guarantees secure and efficient
+            students&apos; accounts, UniAid guarantees secure and efficient
             scholarship management.
           </p>
         </div>
