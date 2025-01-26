@@ -28,7 +28,7 @@ const Register = () => {
       }
     }
     return (
-      <div className="hero bg-base-100 min-h-screen">
+      <div className="hero bg-gradient-to-r from-indigo-600 to-blue-500 min-h-screen">
         <Helmet>
           <title>UniAid || Register</title>
         </Helmet>
@@ -90,7 +90,7 @@ const Register = () => {
                 )}
               </div>
               <div className="form-control  mt-6">
-                <button className="btn btn-full btn-primary text-white bg-[#046cf5]">
+                <button className="btn btn-block btn-primary text-white bg-[#046cf5]">
                   Register
                 </button>
               </div>

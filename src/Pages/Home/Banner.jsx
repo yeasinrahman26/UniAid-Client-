@@ -46,8 +46,7 @@ const Banner = () => {
             <div
               key={slide.id}
               className="flex flex-col  items-center 
-                justify-center h-62  md:h-62 bg-gradient-to-r from-blue-700 
-                 to-[#14fc92] text-white rounded-lg shadow-lg p-8"
+                justify-center h-62  md:h-62 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg shadow-lg p-8"
             >
               <h2 className="text-3xl text-black lg:text-5xl lg:pt-10 font-bold mb-4">
                 {slide.title}
