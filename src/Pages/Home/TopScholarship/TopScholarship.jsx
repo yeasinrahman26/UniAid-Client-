@@ -1,63 +1,40 @@
+import { Link } from "react-router-dom";
+import ScholarshipCard from "../../AllScholarship/ScholarshipCard";
+import { useEffect, useState } from "react";
+
 const TopScholarship = () => {
+  const [top, setTop] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/latestScholarship")
+      .then((res) => res.json())
+      .then((data) => {
+        // Ensure data is an array if you're using .map()
+        setTop(Array.isArray(data) ? data : [data]); // In case it's a single object, wrap it in an array
+      })
+      .catch((error) => {
+        console.error("Error fetching latest scholarship:", error);
+        // Optionally, handle the error state here (e.g., show an error message)
+      });
+  }, []);
+
   return (
     <div className="bg-gray-200 rounded-xl">
-      <h1 className="text-4xl text-center  pt-10 font-bold">Top Scholarship</h1>
+      <h1 className="text-4xl text-center pt-10 font-bold">Top Scholarship</h1>
 
-      <div className="grid mx-4 py-10 md:mx-0 md:grid-cols-3 gap-10">
-        <div className="card bg-base-100  shadow-sm">
-          <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Card Title</h2>
-            <p>
-              A card component has a figure, a body part, and inside body there
-              are title and actions parts
-            </p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-sm">
-          <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Card Title</h2>
-            <p>
-              A card component has a figure, a body part, and inside body there
-              are title and actions parts
-            </p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-sm">
-          <figure>
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-              alt="Shoes"
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Card Title</h2>
-            <p>
-              A card component has a figure, a body part, and inside body there
-              are title and actions parts
-            </p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+      <div className="grid mx-4 py-10 md:mx-0 md:grid-cols-3 p-4 gap-10">
+        {/* Check if top is an array with data */}
+        {top.length > 0 ? (
+          top.map((item) => <ScholarshipCard key={item._id} item={item} />)
+        ) : (
+          <div>No scholarships found</div>
+        )}
+      </div>
+
+      <div className="flex justify-center items-center pb-10">
+        <Link to="/allScholarship">
+          <button className="btn btn-primary">View All Scholarships</button>
+        </Link>
       </div>
     </div>
   );
