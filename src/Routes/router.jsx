@@ -5,7 +5,8 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import DashBoard from "../Layout/DashBoard";
 import MyProfile from "../Pages/DashBoardPages/MyProfile/MyProfile";
-
+import AddScholarship from "../Pages/DashBoardPages/AddScholarship/AddScholarship";
+import AllScholarship from "../Pages/AllScholarship/AllScholarship";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allScholarship",
-        element: <Home></Home>,
+        element: <AllScholarship></AllScholarship>,
       },
       {
         path: "login",
@@ -48,10 +49,14 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashBoard",
-        element:<MyProfile></MyProfile>
+        element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "addScholarship",
+        element: <AddScholarship></AddScholarship>,
       },
     ],
   },
 ]);
 
-export default router ;
+export default router;

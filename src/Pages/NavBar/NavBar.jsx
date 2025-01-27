@@ -69,7 +69,7 @@ const NavBar = () => {
                   <img src={user.photoURL}></img>
                 </div>
               </div>
-              <div className="absolute -bottom-20  w-40 -left-12  right-0 px-0 pb-3  text-black font-bold  opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute -bottom-12 md:-bottom-1 w-40 -left-12 md:-left-40 right-0 px-0 pb-3  text-black font-bold  opacity-0 group-hover:opacity-100 transition-opacity">
                 {user.displayName}
               </div>
             </div>

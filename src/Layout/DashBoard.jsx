@@ -3,8 +3,8 @@ import { IoMenu } from "react-icons/io5";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
-  const isAdmin = false ; // Set to true if the user is an admin
-  const isMod = true ;
+  const isAdmin = true; // Set to true if the user is an admin
+  const isMod = false;
   return (
     <div className="drawer md:drawer-open">
       <Helmet>
@@ -45,7 +45,11 @@ const DashBoard = () => {
                     <span>Admin Dashboard</span>
                   </NavLink>
                 </li>
-                {/* Add more admin-specific links */}
+                <li>
+                  <NavLink to="/dashboard/addScholarship">
+                    <span>Add Scholarship</span>
+                  </NavLink>
+                </li>
               </>
             )}
 
@@ -57,7 +61,11 @@ const DashBoard = () => {
                     <span>Moderator Dashboard</span>
                   </NavLink>
                 </li>
-                {/* Add more moderator-specific links */}
+                <li>
+                  <NavLink to="/dashboard/addScholarship">
+                    <span>Add Scholarship</span>
+                  </NavLink>
+                </li>
               </>
             )}
 
@@ -69,7 +77,6 @@ const DashBoard = () => {
                     <span>User Dashboard</span>
                   </NavLink>
                 </li>
-                {/* Add more user-specific links */}
               </>
             )}
 
