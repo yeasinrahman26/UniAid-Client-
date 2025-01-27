@@ -7,6 +7,7 @@ import DashBoard from "../Layout/DashBoard";
 import MyProfile from "../Pages/DashBoardPages/MyProfile/MyProfile";
 import AddScholarship from "../Pages/DashBoardPages/AddScholarship/AddScholarship";
 import AllScholarship from "../Pages/AllScholarship/AllScholarship";
+import ScholarshipDetails from "../Pages/ScholarshipDetails/ScholarshipDetails";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +19,14 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/allScholarship",
+        path: "allScholarship",
         element: <AllScholarship></AllScholarship>,
+      },
+      {
+        path: "allScholarship/:id",
+        element: <ScholarshipDetails></ScholarshipDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allScholarship/${params.id}`),
       },
       {
         path: "login",
