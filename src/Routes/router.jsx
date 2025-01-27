@@ -8,6 +8,7 @@ import MyProfile from "../Pages/DashBoardPages/MyProfile/MyProfile";
 import AddScholarship from "../Pages/DashBoardPages/AddScholarship/AddScholarship";
 import AllScholarship from "../Pages/AllScholarship/AllScholarship";
 import ScholarshipDetails from "../Pages/ScholarshipDetails/ScholarshipDetails";
+import PrivetRoutes from "./PrivetRoutes";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "allScholarship/:id",
-        element: <ScholarshipDetails></ScholarshipDetails>,
+        element: (
+          <PrivetRoutes>
+            <ScholarshipDetails></ScholarshipDetails>
+          </PrivetRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allScholarship/${params.id}`),
       },
@@ -46,11 +51,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashBoard",
-    element: <DashBoard></DashBoard>,
+    element: (
+      <PrivetRoutes>
+        <DashBoard></DashBoard>
+      </PrivetRoutes>
+    ),
     errorElement: (
       <div>
-        {" "}
-        <h1 className="bg-red-600 p-20 text-center">Error page</h1>{" "}
+        <h1 className="bg-red-600 p-20 text-center">Error page</h1>
       </div>
     ),
     children: [

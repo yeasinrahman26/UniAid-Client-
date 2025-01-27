@@ -1,11 +1,19 @@
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
+import { useContext } from "react";
+import AuthContext from '../../../Auth/AuthContext'
+
 
 const AddScholarship = () => {
   const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
   const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
   const axios = useAxios();
+
+  const {user}=useContext(AuthContext)
+  const email=user.email
+
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -269,6 +277,7 @@ const AddScholarship = () => {
           </label>
           <input
             type="date"
+            value={new Date().toISOString().split("T")[0]}
             name="scholarshipPostDate"
             className="input input-bordered w-full"
             required
@@ -286,6 +295,7 @@ const AddScholarship = () => {
             type="email"
             name="postedUserEmail"
             placeholder="Enter email"
+            value={email}
             className="input input-bordered w-full"
             required
           />
