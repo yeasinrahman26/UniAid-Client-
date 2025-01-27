@@ -1,20 +1,47 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
+import { useContext } from "react";
+import AuthContext from "../../Auth/AuthContext";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
 
-  
+   const { loginUser } = useContext(AuthContext);
+   const navigate = useNavigate();
+   const location = useLocation();
+   const from = location.state || "/";
 
 
     const handleLogin=e=>{
-        e.preventDefault();
-        const form = e.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(password, email);
+      e.preventDefault();
+      const form = e.target;
+      const email = form.email.value;
+      const password = form.password.value;
+      console.log(password, email);
 
+      // login validation
+
+      loginUser(email, password)
+        .then((result) => {
+          const user = result.user;
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: `welcome ${user.displayName}`,
+            showConfirmButton: false,
+            timer: 1000,
+          });
+          navigate(from);
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Check email & Password !",
+            text: `${error.message}`,
+          });
+        });
     }
     return (
       <div className="hero bg-gradient-to-r from-blue-500 to-indigo-600 min-h-screen">

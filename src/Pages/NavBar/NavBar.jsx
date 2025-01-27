@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import AuthContext from "../../Auth/AuthContext";
+
 
 const NavBar = () => {
+  const { logout, user } = useContext(AuthContext);
+
   const links = (
     <>
       <li className="font-semibold">
@@ -55,16 +60,35 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end mr-4">
-        <div className="space-x-1">
-          <Link to={"register"}>
-            <button className="btn text-lg hover:text-blue-700 font-normal text-black btn-link">
-              Register
+        {user ? (
+          <>
+            {/* Avatar with name on hover */}
+            <div className="relative group">
+              <div className="avatar ">
+                <div className="ring-primary ring-offset-base-100 w-10 mt-1 mx-3 rounded-full ring ring-offset-1">
+                  <img src={user.photoURL}></img>
+                </div>
+              </div>
+              <div className="absolute -bottom-20  w-40 -left-12  right-0 px-0 pb-3  text-black font-bold  opacity-0 group-hover:opacity-100 transition-opacity">
+                {user.displayName}
+              </div>
+            </div>
+            <button onClick={logout} className="btn btn-error">
+              Logout
             </button>
-          </Link>
-          <Link to={"login"}>
-            <button className="btn btn-primary">Login</button>
-          </Link>
-        </div>
+          </>
+        ) : (
+          <div className="space-x-1">
+            <Link to={"register"}>
+              <button className="btn text-lg hover:text-blue-700 font-normal text-black btn-link">
+                Register
+              </button>
+            </Link>
+            <Link to={"login"}>
+              <button className="btn btn-primary">Login</button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
