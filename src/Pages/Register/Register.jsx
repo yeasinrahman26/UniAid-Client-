@@ -21,7 +21,7 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, password, email);
+    //console.log(name, photo, password, email);
 
     // password validation
     const regex = /^[A-Za-z]{6,}$/;
@@ -38,7 +38,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        //console.log(user);
         updateProfileUser({
           displayName: name,
           photoURL: photo,
@@ -71,7 +71,7 @@ const Register = () => {
           title: `${error.message}`,
           text: "Something went wrong!",
         });
-        // console.log(error);
+        // //console.log(error);
       });
   };
   return (

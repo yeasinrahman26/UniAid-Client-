@@ -27,8 +27,7 @@ const GoogleLogin = () => {
               showConfirmButton: false,
               timer: 1000,
             });
-          }
-          else {
+          } else {
             Swal.fire({
               position: "top-center",
               icon: "success",
@@ -42,7 +41,7 @@ const GoogleLogin = () => {
         navigate(from);
       })
       .catch((error) => {
-        console.log(error.message);
+        //console.log(error.message);
       });
   };
   return (

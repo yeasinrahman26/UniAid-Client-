@@ -16,9 +16,10 @@ const AllUsers = () => {
   });
 
   const handleOnChange = (user, selectedRole) => {
-    axios.patch(`/users/role/${user._id}`, { role: selectedRole })
+    axios
+      .patch(`/users/role/${user._id}`, { role: selectedRole })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         refetch(); // Refetch data after role update
       })
       .catch((error) => {
@@ -37,7 +38,7 @@ const AllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(user._id);
+        //console.log(user._id);
         axios.delete(`/users/${user._id}`).then((res) => {
           refetch();
           if (res.data.deleteCount > 0) {

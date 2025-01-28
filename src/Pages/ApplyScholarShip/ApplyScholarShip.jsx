@@ -22,15 +22,15 @@ const ApplyScholarShip = () => {
 
   const name = user.displayName;
   const email = user.email;
-  console.log(email, name, _id);
+  //console.log(email, name, _id);
   const items = {
     User_name: name,
     User_email: email,
     scholarship_id: _id,
-    applicationDeadline:  applicationDeadline,
-    serviceCharge:  serviceCharge,
-    universityCity: universityCity ,
-    universityCountry:  universityCountry ,
+    applicationDeadline: applicationDeadline,
+    serviceCharge: serviceCharge,
+    universityCity: universityCity,
+    universityCountry: universityCountry,
   };
 
   const axios = useAxios();
@@ -39,7 +39,7 @@ const ApplyScholarShip = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formValues = Object.fromEntries(formData.entries());
-    console.log(formValues);
+    //console.log(formValues);
 
     const dataSend = {
       ...items,

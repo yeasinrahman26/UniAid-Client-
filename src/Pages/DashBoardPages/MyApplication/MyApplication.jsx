@@ -42,7 +42,7 @@ const MyApplication = () => {
       if (result.isConfirmed) {
         axios.delete(`/apply/${id}`).then((res) => {
           refetch();
-          console.log(res.data);
+          //console.log(res.data);
           if (res.data.deleteCount > 0) {
             Swal.fire({
               title: "Deleted!",
@@ -59,7 +59,7 @@ const MyApplication = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const formValues = Object.fromEntries(formData.entries());
-    console.log(formValues);
+    //console.log(formValues);
 
     // Perform the update request (example POST request to an endpoint)
     try {
@@ -67,7 +67,7 @@ const MyApplication = () => {
         `/apply/${selectedApplication._id}`,
         formValues
       );
-      console.log(res.data);
+      //console.log(res.data);
       Swal.fire({
         title: "Updated!",
         text: "Your Application has been updated.",

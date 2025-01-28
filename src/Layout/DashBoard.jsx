@@ -5,19 +5,12 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import UseMode from "../Hooks/UseMode";
 
-
-
-
-
 const DashBoard = () => {
-
-
-
   const [isAdmin] = useAdmin();
 
-  const [isMod] =UseMode();
+  const [isMod] = UseMode();
 
-  // console.log(isMod,isAdmin);
+  // //console.log(isMod,isAdmin);
   return (
     <div className="drawer md:drawer-open">
       <Helmet>
@@ -47,7 +40,7 @@ const DashBoard = () => {
           <ul className="menu text-lg font-medium">
             <li>
               <NavLink to="/dashboard">
-              <span>MY Profile</span>
+                <span>MY Profile</span>
               </NavLink>
             </li>
             {/* Admin links */}

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const AppliedScholarship = () => {
   const axios = useAxios();
-  const { data: scholarships = [] } = useQuery({
+  const { refetch, data: scholarships = [] } = useQuery({
     queryKey: ["scholarships"],
     queryFn: async () => {
       const res = await axios.get("/apply");
@@ -51,6 +51,7 @@ const AppliedScholarship = () => {
       // Send the feedback to the server using the selected scholarship _id
       await axios.patch(`/feedback/${selectedScholarship._id}`, feedbackInfo);
       setIsFeedbackModalOpen(false);
+      refetch()
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -69,8 +70,15 @@ const AppliedScholarship = () => {
       };
     try {
       await axios.patch(`/rejected/${scholarshipId}`, rejected);
-      // Refetch the data to get updated scholarships
-      alert("Application has been rejected.");
+      
+      refetch();
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Application Rejected ",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } catch (error) {
       console.error("Error rejecting application:", error);
       alert("Failed to reject the application.");

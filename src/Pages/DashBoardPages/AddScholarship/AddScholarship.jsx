@@ -1,8 +1,7 @@
 import Swal from "sweetalert2";
 import useAxios from "../../../Hooks/useAxios";
 import { useContext } from "react";
-import AuthContext from '../../../Auth/AuthContext'
-
+import AuthContext from "../../../Auth/AuthContext";
 
 const AddScholarship = () => {
   const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -10,10 +9,8 @@ const AddScholarship = () => {
 
   const axios = useAxios();
 
-  const {user}=useContext(AuthContext)
-  const email=user.email
-
- 
+  const { user } = useContext(AuthContext);
+  const email = user.email;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,32 +18,29 @@ const AddScholarship = () => {
     const imgFile = formData.get("image");
     const formValues = Object.fromEntries(formData.entries());
     delete formValues.image; // We don't need the file in the form data for now
-    
-      // Upload image to imgbb
-      const imgFormData = new FormData();
-      imgFormData.append("image", imgFile);
-      const res = await axios.post(image_hosting_api, imgFormData, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      });
-      const imageUrl = res.data.data.url;
-      console.log("Image uploaded, URL:", imageUrl);
-      formValues.imageUrl = imageUrl;
-      console.log("Form Values with Image URL:", formValues);
-      const add=await axios.post('/allScholarship', formValues)
-      if (add.data.insertedId) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Scholarship Added Successfully ",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
 
-    
-    
+    // Upload image to imgbb
+    const imgFormData = new FormData();
+    imgFormData.append("image", imgFile);
+    const res = await axios.post(image_hosting_api, imgFormData, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    const imageUrl = res.data.data.url;
+    //console.log("Image uploaded, URL:", imageUrl);
+    formValues.imageUrl = imageUrl;
+    //console.log("Form Values with Image URL:", formValues);
+    const add = await axios.post("/allScholarship", formValues);
+    if (add.data.insertedId) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Scholarship Added Successfully ",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   return (
@@ -277,7 +271,6 @@ const AddScholarship = () => {
           </label>
           <input
             type="date"
-    
             name="scholarshipPostDate"
             className="input input-bordered w-full"
             required
