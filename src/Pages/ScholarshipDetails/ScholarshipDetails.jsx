@@ -1,5 +1,5 @@
 
-import { useLoaderData,  } from "react-router-dom";
+import { Link, useLoaderData,  } from "react-router-dom";
 
 
 const ScholarshipDetails = () => {
@@ -63,9 +63,11 @@ const ScholarshipDetails = () => {
           </div>
           {/* Apply Button */}
           <div className="flex justify-center">
-            <button className="btn btn-primary w-full sm:w-48 py-2 mt-4 text-white rounded-full transition-all duration-300 hover:bg-blue-600">
-              Apply for Scholarship
-            </button>
+            <Link to={`/apply/${_id}`} >
+              <button className="btn btn-primary w-full sm:w-48 py-2 mt-4 text-white rounded-full transition-all duration-300 hover:bg-blue-600">
+                Apply for Scholarship
+              </button>
+            </Link>
           </div>
         </div>
       </div>

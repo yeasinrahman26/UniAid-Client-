@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../../Hooks/useAxios";
-import { FaUsers } from "react-icons/fa";
+
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 

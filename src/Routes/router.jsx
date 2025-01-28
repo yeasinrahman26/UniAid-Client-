@@ -12,7 +12,7 @@ import PrivetRoutes from "./PrivetRoutes";
 import AllUsers from "../Pages/DashBoardPages/AllUsers/AllUsers";
 import AdminRoutes from "./AdminRoutes";
 import ManageScholarship from "../Pages/DashBoardPages/ManageScholarship/ManageScholarship";
-
+import ApplyScholarShip from "../Pages/ApplyScholarShip/ApplyScholarShip";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,16 @@ const router = createBrowserRouter([
         element: (
           <PrivetRoutes>
             <ScholarshipDetails></ScholarshipDetails>
+          </PrivetRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allScholarship/${params.id}`),
+      },
+      {
+        path: "apply/:id",
+        element: (
+          <PrivetRoutes>
+            <ApplyScholarShip></ApplyScholarShip>
           </PrivetRoutes>
         ),
         loader: ({ params }) =>
@@ -90,7 +100,7 @@ const router = createBrowserRouter([
           </AdminRoutes>
         ),
       },
-      
+
       {
         path: "users",
         element: (
