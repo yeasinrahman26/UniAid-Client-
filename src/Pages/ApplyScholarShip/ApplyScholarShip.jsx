@@ -5,8 +5,17 @@ import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 
 const ApplyScholarShip = () => {
-  const { _id, universityName, degree, subjectCategory, scholarshipCategory } =
-    useLoaderData();
+  const {
+    _id,
+    universityName,
+    applicationDeadline,
+    serviceCharge,
+    universityCountry,
+    universityCity,
+    degree,
+    subjectCategory,
+    scholarshipCategory,
+  } = useLoaderData();
   const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -18,6 +27,10 @@ const ApplyScholarShip = () => {
     User_name: name,
     User_email: email,
     scholarship_id: _id,
+    applicationDeadline:  applicationDeadline,
+    serviceCharge:  serviceCharge,
+    universityCity: universityCity ,
+    universityCountry:  universityCountry ,
   };
 
   const axios = useAxios();

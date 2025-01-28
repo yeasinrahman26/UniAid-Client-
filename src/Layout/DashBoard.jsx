@@ -32,7 +32,7 @@ const DashBoard = () => {
           </label>
           <h1 className="text-2xl font-bold">UniAid</h1>
         </div>
-        <div className="p-8">
+        <div className="p-8 ">
           <Outlet />
         </div>
       </div>
@@ -41,7 +41,7 @@ const DashBoard = () => {
         <div className="w-64 min-h-screen bg-blue-500 text-white overflow-y-auto">
           <div className="flex flex-col my-10 items-center justify-center">
             <Link to="/">
-              <h1 className="text-4xl font-bold">UniAid</h1>
+              <h1 className="text-4xl hover:text-black font-bold">UniAid</h1>
             </Link>
           </div>
           <ul className="menu text-lg font-medium">

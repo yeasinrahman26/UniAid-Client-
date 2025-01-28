@@ -47,12 +47,12 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm bg-gray-300 dropdown-content bg-base-100 rounded-box z-1 mt-5 w-52 p-2 shadow"
+            className="menu menu-sm bg-gray-300 dropdown-content  rounded-box z-1 mt-5 w-52 p-2 shadow"
           >
             {links}
           </ul>
         </div>
-        <Link to={"/"} className="ml-4 font-bold text-2xl">
+        <Link to={"/"} className="ml-4 hover:bg-blue-600 hover:p-1 hover:rounded-xl hover:text-white font-bold text-2xl">
           UniAid
         </Link>
       </div>

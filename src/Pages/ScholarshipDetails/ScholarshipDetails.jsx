@@ -13,6 +13,10 @@ const ScholarshipDetails = () => {
     subjectCategory,
     scholarshipCategory,
     applicationFees,
+    scholarshipPostDate,
+    serviceCharge,
+    applicationDeadline,
+    degree,
     imageUrl,
   } = item;
 
@@ -41,6 +45,10 @@ const ScholarshipDetails = () => {
         <div className="lg:w-2/3 w-full p-6 space-y-4">
           <div className="text-lg text-gray-600 space-y-2">
             <p>
+              <strong className="text-gray-900">Posted Date :</strong>{" "}
+              {scholarshipPostDate}
+            </p>
+            <p>
               <strong className="text-gray-900">Scholarship Name:</strong>{" "}
               {scholarshipName}
             </p>
@@ -53,6 +61,9 @@ const ScholarshipDetails = () => {
               {subjectCategory}
             </p>
             <p>
+              <strong className="text-gray-900">Degree:</strong> {degree}
+            </p>
+            <p>
               <strong className="text-gray-900">Location:</strong>{" "}
               {universityCity}, {universityCountry}
             </p>
@@ -60,10 +71,18 @@ const ScholarshipDetails = () => {
               <strong className="text-gray-900">Application Fees:</strong> $
               {applicationFees}
             </p>
+            <p>
+              <strong className="text-gray-900">Service Fees:</strong> $
+              {serviceCharge}
+            </p>
+            <p>
+              <strong className="text-gray-900">Deadline: </strong>
+              {applicationDeadline}
+            </p>
           </div>
           {/* Apply Button */}
           <div className="flex justify-center">
-            <Link to={`/apply/${_id}`} >
+            <Link to={`/apply/${_id}`}>
               <button className="btn btn-primary w-full sm:w-48 py-2 mt-4 text-white rounded-full transition-all duration-300 hover:bg-blue-600">
                 Apply for Scholarship
               </button>

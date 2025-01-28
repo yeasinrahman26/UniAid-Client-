@@ -13,6 +13,8 @@ import AllUsers from "../Pages/DashBoardPages/AllUsers/AllUsers";
 import AdminRoutes from "./AdminRoutes";
 import ManageScholarship from "../Pages/DashBoardPages/ManageScholarship/ManageScholarship";
 import ApplyScholarShip from "../Pages/ApplyScholarShip/ApplyScholarShip";
+import MyApplication from "../Pages/DashBoardPages/MyApplication/MyApplication";
+import MyReview from "../Pages/DashBoardPages/MyReview/MyReview";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
       {
         path: "/dashBoard",
         element: <MyProfile></MyProfile>,
+      },
+      {
+        path: "application",
+        element: <MyApplication></MyApplication>,
+      },
+      {
+        path: "myReviews",
+        element: <MyReview></MyReview> ,
       },
       {
         path: "addScholarship",
