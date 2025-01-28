@@ -16,6 +16,7 @@ import ApplyScholarShip from "../Pages/ApplyScholarShip/ApplyScholarShip";
 import MyApplication from "../Pages/DashBoardPages/MyApplication/MyApplication";
 import MyReview from "../Pages/DashBoardPages/MyReview/MyReview";
 import AllReview from "../Pages/DashBoardPages/AllReview/AllReview";
+import AppliedScholarship from "../Pages/DashBoardPages/AppliedScholarship/AppliedScholarship";
 
 const router = createBrowserRouter([
   {
@@ -95,15 +96,24 @@ const router = createBrowserRouter([
         path: "myReviews",
         element: <MyReview></MyReview>,
       },
-
+      // admin and mod only
       {
         path: "allReviews",
         element: (
           <AdminRoutes>
-           <AllReview></AllReview>
+            <AllReview></AllReview>
           </AdminRoutes>
         ),
       },
+      {
+        path: "allAppliedScholarship",
+        element: (
+          <AdminRoutes>
+           <AppliedScholarship></AppliedScholarship>
+          </AdminRoutes>
+        ),
+      },
+      
       {
         path: "addScholarship",
         element: (
