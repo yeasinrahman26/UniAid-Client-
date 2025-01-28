@@ -13,6 +13,7 @@ import AllUsers from "../Pages/DashBoardPages/AllUsers/AllUsers";
 import AdminRoutes from "./AdminRoutes";
 import ManageScholarship from "../Pages/DashBoardPages/ManageScholarship/ManageScholarship";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -89,6 +90,7 @@ const router = createBrowserRouter([
           </AdminRoutes>
         ),
       },
+      
       {
         path: "users",
         element: (

@@ -17,7 +17,7 @@ const DashBoard = () => {
 
   const [isMod] =UseMode();
 
-  console.log(isMod,isAdmin);
+  // console.log(isMod,isAdmin);
   return (
     <div className="drawer md:drawer-open">
       <Helmet>
