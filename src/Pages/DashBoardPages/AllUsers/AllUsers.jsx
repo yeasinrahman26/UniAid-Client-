@@ -16,8 +16,7 @@ const AllUsers = () => {
   });
 
   const handleOnChange = (user, selectedRole) => {
-    axios
-      .patch(`/users/role/${user._id}`, { role: selectedRole })
+    axios.patch(`/users/role/${user._id}`, { role: selectedRole })
       .then((res) => {
         console.log(res.data);
         refetch(); // Refetch data after role update
@@ -44,7 +43,7 @@ const AllUsers = () => {
           if (res.data.deleteCount > 0) {
             Swal.fire({
               title: "Deleted!",
-              text: "User has been deleted.",
+              text: "Your file has been deleted.",
               icon: "success",
             });
           }

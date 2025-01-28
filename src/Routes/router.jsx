@@ -46,9 +46,13 @@ const router = createBrowserRouter([
       },
     ],
     errorElement: (
-      <div>
+      <div className="bg-[#8C52FE]">
         {" "}
-        <h1 className="bg-red-600 p-20 text-center">Error page</h1>{" "}
+        <img
+          className="w-full h-screen object-none"
+          src="https://seocom.agency/wp-content/uploads/2024/05/Errores-Web-404-403-503-502-401.-Significado-y-soluciones-1.jpg.webp"
+          alt=""
+        />
       </div>
     ),
   },
