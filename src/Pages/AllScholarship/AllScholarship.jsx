@@ -4,12 +4,13 @@ import ScholarshipCard from "./ScholarshipCard";
 import AuthContext from "../../Auth/AuthContext";
 
 const AllScholarship = () => {
-  const [scholarship] = useAllScholarship();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredScholarships, setFilteredScholarships] = useState(scholarship);
+  const [scholarship] = useAllScholarship(); // This will always have the data
+  const [allScholarships, setAllScholarships] = useState(scholarship); // Store all scholarships
+  const [searchQuery, setSearchQuery] = useState(""); // Search query state
+  const [filteredScholarships, setFilteredScholarships] = useState(scholarship); // Filtered scholarships for search
 
   // Pagination state
-  const [currentPage, setCurrentPage] = useState(1); // Default is page 1
+  const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6); // Display 6 items per page
 
   // State for handling initial loading state
@@ -18,25 +19,31 @@ const AllScholarship = () => {
   // Get loading state from AuthContext (for fetching data)
   const { loading } = useContext(AuthContext);
 
-  // Filter scholarships based on the search query whenever searchQuery changes
-  useEffect(() => {
-    const lowerQuery = searchQuery.toLowerCase();
-    const filtered = scholarship.filter((item) => {
-      return (
-        item.scholarshipName.toLowerCase().includes(lowerQuery) ||
-        item.universityName.toLowerCase().includes(lowerQuery) ||
-        item.degree.toLowerCase().includes(lowerQuery)
-      );
-    });
-    setFilteredScholarships(filtered);
-  }, [searchQuery, scholarship]);
-
   // Set initial loading to false once data has been fetched
   useEffect(() => {
     if (scholarship.length > 0) {
       setInitialLoading(false);
+      setAllScholarships(scholarship); // Set fetched data as all scholarships
+      setFilteredScholarships(scholarship); // Initially show all scholarships
     }
   }, [scholarship]);
+
+  // Handle search button click (filter scholarships)
+  const handleSearchClick = () => {
+    if (searchQuery === "") {
+      setFilteredScholarships(allScholarships); // If searchQuery is empty, show all scholarships
+    } else {
+      const filtered = allScholarships.filter((item) => {
+        return (
+          item.scholarshipName.includes(searchQuery) ||
+          item.universityName.includes(searchQuery) ||
+          item.degree.includes(searchQuery)
+        );
+      });
+      setFilteredScholarships(filtered); // Filter based on search query
+    }
+    setCurrentPage(1); // Reset to the first page when a new search is made
+  };
 
   // Calculate the scholarships to be displayed on the current page
   const indexOfLastScholarship = currentPage * itemsPerPage;
@@ -48,20 +55,6 @@ const AllScholarship = () => {
 
   // Handle pagination
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  // Handle search button click
-  const handleSearchClick = () => {
-    const lowerQuery = searchQuery.toLowerCase();
-    const filtered = scholarship.filter((item) => {
-      return (
-        item.scholarshipName.toLowerCase().includes(lowerQuery) ||
-        item.universityName.toLowerCase().includes(lowerQuery) ||
-        item.degree.toLowerCase().includes(lowerQuery)
-      );
-    });
-    setFilteredScholarships(filtered);
-    setCurrentPage(1); // Reset to the first page when a new search is made
-  };
 
   // Pagination control: calculate total pages
   const totalPages = Math.ceil(filteredScholarships.length / itemsPerPage);
