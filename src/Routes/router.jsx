@@ -39,7 +39,9 @@ const router = createBrowserRouter([
           </PrivetRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allScholarship/${params.id}`),
+          fetch(
+            `https://uni-aid-server-site.vercel.app/allScholarship/${params.id}`
+          ),
       },
       {
         path: "apply/:id",
@@ -49,7 +51,9 @@ const router = createBrowserRouter([
           </PrivetRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allScholarship/${params.id}`),
+          fetch(
+            `https://uni-aid-server-site.vercel.app/allScholarship/${params.id}`
+          ),
       },
       {
         path: "login",
@@ -109,11 +113,11 @@ const router = createBrowserRouter([
         path: "allAppliedScholarship",
         element: (
           <AdminRoutes>
-           <AppliedScholarship></AppliedScholarship>
+            <AppliedScholarship></AppliedScholarship>
           </AdminRoutes>
         ),
       },
-      
+
       {
         path: "addScholarship",
         element: (

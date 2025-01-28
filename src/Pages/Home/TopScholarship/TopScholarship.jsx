@@ -6,7 +6,7 @@ const TopScholarship = () => {
   const [top, setTop] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/latestScholarship")
+    fetch("https://uni-aid-server-site.vercel.app/latestScholarship")
       .then((res) => res.json())
       .then((data) => {
         // Ensure data is an array if you're using .map()
