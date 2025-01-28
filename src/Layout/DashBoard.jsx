@@ -130,15 +130,10 @@ const DashBoard = () => {
             )}
 
             {/* Shared links (available for everyone) */}
-            <div className="divider"></div>
+            <div className="border-b-2 border-black my-5"></div>
             <li>
               <NavLink to="/">
                 <span>Home</span>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/allScholarship">
-                <span>All Scholarship</span>
               </NavLink>
             </li>
           </ul>
