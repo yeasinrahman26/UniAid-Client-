@@ -9,6 +9,9 @@ import AddScholarship from "../Pages/DashBoardPages/AddScholarship/AddScholarshi
 import AllScholarship from "../Pages/AllScholarship/AllScholarship";
 import ScholarshipDetails from "../Pages/ScholarshipDetails/ScholarshipDetails";
 import PrivetRoutes from "./PrivetRoutes";
+import AllUsers from "../Pages/DashBoardPages/AllUsers/AllUsers";
+import AdminRoutes from "./AdminRoutes";
+import ManageScholarship from "../Pages/DashBoardPages/ManageScholarship/ManageScholarship";
 
 const router = createBrowserRouter([
   {
@@ -68,7 +71,27 @@ const router = createBrowserRouter([
       },
       {
         path: "addScholarship",
-        element: <AddScholarship></AddScholarship>,
+        element: (
+          <AdminRoutes>
+            <AddScholarship></AddScholarship>
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "manage",
+        element: (
+          <AdminRoutes>
+            <ManageScholarship />
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "users",
+        element: (
+          <AdminRoutes>
+            <AllUsers></AllUsers>
+          </AdminRoutes>
+        ),
       },
     ],
   },

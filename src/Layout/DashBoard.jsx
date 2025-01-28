@@ -2,9 +2,22 @@ import { Helmet } from "react-helmet-async";
 import { IoMenu } from "react-icons/io5";
 import { Link, NavLink, Outlet } from "react-router-dom";
 
+import useAdmin from "../Hooks/useAdmin";
+import UseMode from "../Hooks/UseMode";
+
+
+
+
+
 const DashBoard = () => {
-  const isAdmin = true; // Set to true if the user is an admin
-  const isMod = false;
+
+
+
+  const [isAdmin] = useAdmin();
+
+  const [isMod] =UseMode();
+
+  console.log(isMod,isAdmin);
   return (
     <div className="drawer md:drawer-open">
       <Helmet>
@@ -31,23 +44,41 @@ const DashBoard = () => {
               <h1 className="text-4xl font-bold">UniAid</h1>
             </Link>
           </div>
-          <ul className="menu text-xl font-medium">
+          <ul className="menu text-lg font-medium">
             <li>
               <NavLink to="/dashboard">
-                <span>MY Profile</span>
+              <span>MY Profile</span>
               </NavLink>
             </li>
             {/* Admin links */}
             {isAdmin && (
               <>
                 <li>
-                  <NavLink to="/dashboard/adminDashboard">
-                    <span>Admin Dashboard</span>
+                  <NavLink to="/dashboard/users">
+                    <span>Manage Users</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/manage">
+                    <span>Manage Scholarships</span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/dashboard/addScholarship">
                     <span>Add Scholarship</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/allReviews">
+                    <span>All reviews</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allAppliedScholarship
+"
+                  >
+                    <span>All applied Scholarship</span>
                   </NavLink>
                 </li>
               </>
@@ -57,13 +88,26 @@ const DashBoard = () => {
             {isMod && !isAdmin && (
               <>
                 <li>
-                  <NavLink to="/dashboard/modDashboard">
-                    <span>Moderator Dashboard</span>
+                  <NavLink to="/dashboard/manage">
+                    <span>Manage Scholarships</span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="/dashboard/addScholarship">
                     <span>Add Scholarship</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/allReviews">
+                    <span>All reviews</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allAppliedScholarship
+"
+                  >
+                    <span>All applied Scholarship</span>
                   </NavLink>
                 </li>
               </>
@@ -73,8 +117,13 @@ const DashBoard = () => {
             {!isAdmin && !isMod && (
               <>
                 <li>
-                  <NavLink to="/dashboard/userDashboard">
-                    <span>User Dashboard</span>
+                  <NavLink to="/dashboard/application">
+                    <span>My Application</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myReviews">
+                    <span>My reviews</span>
                   </NavLink>
                 </li>
               </>

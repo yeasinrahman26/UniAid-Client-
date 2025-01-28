@@ -2,23 +2,43 @@ import { useContext } from "react";
 import AuthContext from "../../Auth/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const GoogleLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
   const location = useLocation();
   const from = location.state || "/";
   const handleGoogle = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        Swal.fire({
-          position: "top-center",
-          icon: "success",
-          title: `welcome ${user.displayName}`,
-          showConfirmButton: false,
-          timer: 1000,
+        const userInfo = {
+          name: user?.displayName,
+          email: user?.email,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: `welcome ${user.displayName}`,
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          }
+          else {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: `welcome back ${user.displayName}`,
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          }
         });
+
         navigate(from);
       })
       .catch((error) => {

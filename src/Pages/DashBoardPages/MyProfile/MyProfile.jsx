@@ -15,7 +15,7 @@ const MyProfile = () => {
         </h1>
         <div className="text-lg font-medium text-gray-700">
           <p>
-            <strong>Role: </strong>
+            <strong>Role:{user.role} </strong>
           </p>
         </div>
       </div>

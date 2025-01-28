@@ -277,7 +277,7 @@ const AddScholarship = () => {
           </label>
           <input
             type="date"
-            value={new Date().toISOString().split("T")[0]}
+    
             name="scholarshipPostDate"
             className="input input-bordered w-full"
             required
