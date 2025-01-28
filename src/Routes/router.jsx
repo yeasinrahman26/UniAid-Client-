@@ -15,6 +15,7 @@ import ManageScholarship from "../Pages/DashBoardPages/ManageScholarship/ManageS
 import ApplyScholarShip from "../Pages/ApplyScholarShip/ApplyScholarShip";
 import MyApplication from "../Pages/DashBoardPages/MyApplication/MyApplication";
 import MyReview from "../Pages/DashBoardPages/MyReview/MyReview";
+import AllReview from "../Pages/DashBoardPages/AllReview/AllReview";
 
 const router = createBrowserRouter([
   {
@@ -92,7 +93,16 @@ const router = createBrowserRouter([
       },
       {
         path: "myReviews",
-        element: <MyReview></MyReview> ,
+        element: <MyReview></MyReview>,
+      },
+
+      {
+        path: "allReviews",
+        element: (
+          <AdminRoutes>
+           <AllReview></AllReview>
+          </AdminRoutes>
+        ),
       },
       {
         path: "addScholarship",
