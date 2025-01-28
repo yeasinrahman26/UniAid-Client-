@@ -103,6 +103,8 @@ const MyApplication = () => {
                 <th>Subject</th>
                 <th>Degree</th>
                 <th>Charge</th>
+                <th>feedBack</th>
+                <th>Status</th>
                 <th>Details</th>
                 <th>Review</th>
                 <th>Update</th>
@@ -120,6 +122,8 @@ const MyApplication = () => {
                   <td>{item.subjectCategory}</td>
                   <td>{item.applyingDegree}</td>
                   <td>{item.serviceCharge} $</td>
+                  <td>{item.feedback ? item.feedback : "N/A"}</td>
+                  <td>{item.status ? "Rejected" : "N/A"}</td>
                   <td>
                     <Link to={`/allScholarship/${item.scholarship_id}`}>
                       <button className="btn text-green-600 mr-2">
