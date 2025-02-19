@@ -6,6 +6,7 @@ import TopScholarship from "./TopScholarship/TopScholarship";
 import { useContext } from "react";
 import AuthContext from "../../Auth/AuthContext";
 import FAQ from "./Faq/FAQ";
+import BlogSection from "./Blogs/BlogSection";
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
           <TopScholarship></TopScholarship>
           <AboutSection></AboutSection>
           <HowWeWork></HowWeWork>
+          <BlogSection></BlogSection>
           <FAQ></FAQ>
         </>
       )}
