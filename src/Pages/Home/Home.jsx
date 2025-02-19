@@ -5,6 +5,7 @@ import HowWeWork from "./HowWeWork/HowWeWork";
 import TopScholarship from "./TopScholarship/TopScholarship";
 import { useContext } from "react";
 import AuthContext from "../../Auth/AuthContext";
+import FAQ from "./Faq/FAQ";
 
 
 const Home = () => {
@@ -23,7 +24,8 @@ const Home = () => {
           <Banner></Banner>
           <TopScholarship></TopScholarship>
           <AboutSection></AboutSection>
-          <HowWeWork></HowWeWork>{" "}
+          <HowWeWork></HowWeWork>
+          <FAQ></FAQ>
         </>
       )}
     </div>
