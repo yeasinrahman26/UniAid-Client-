@@ -19,7 +19,7 @@ const TopScholarship = () => {
   }, []);
 
   return (
-    <div className="bg-gray-200 rounded-xl">
+    <div className="bg-gray-100 rounded-xl">
       <h1 className="text-4xl text-center pt-10 font-bold">Top Scholarship</h1>
 
       <div className="grid mx-4 py-10 md:mx-0 md:grid-cols-3 p-4 gap-10">

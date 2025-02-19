@@ -8,6 +8,7 @@ import AuthContext from "../../Auth/AuthContext";
 import FAQ from "./Faq/FAQ";
 import BlogSection from "./Blogs/BlogSection";
 import SuccessStories from "./SuccessStories/SuccessStories";
+import StudentResources from "./StudentResources/StudentResources";
 
 
 const Home = () => {
@@ -26,10 +27,11 @@ const Home = () => {
           <Banner></Banner>
           <TopScholarship></TopScholarship>
           <AboutSection></AboutSection>
-          <HowWeWork></HowWeWork>
           <BlogSection></BlogSection>
-          <SuccessStories></SuccessStories>
+          <HowWeWork></HowWeWork>
+          <StudentResources></StudentResources>
           <FAQ></FAQ>
+          <SuccessStories></SuccessStories>
         </>
       )}
     </div>

@@ -21,6 +21,7 @@ const SuccessStories = () => {
       quote:
         "I found the perfect scholarship for my program through UniAid. The support was amazing, and I’m now studying my dream course!",
     },
+    
     {
       name: "Maria Garcia",
       university: "Stanford University",
@@ -30,7 +31,7 @@ const SuccessStories = () => {
   ];
 
   return (
-    <section className="rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 py-20">
+    <section className="rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 py-20 mb-16">
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-4xl font-extrabold text-center text-white mb-12 tracking-wide">
           🎉 Success Stories
