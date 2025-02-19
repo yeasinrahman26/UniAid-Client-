@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import AuthContext from "../../Auth/AuthContext";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
@@ -13,53 +13,59 @@ const Login = () => {
   const axiosPublic = useAxiosPublic();
   const from = location.state || "/";
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleLogin = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    //console.log(password, email);
-
     // login validation
-
     loginUser(email, password)
-    .then((result) => {
-      const user = result.user;
-      const userInfo = {
-        name: user?.name,
-        email: user?.email,
-      };
-      axiosPublic.post("/users", userInfo).then((res) => {
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: `welcome ${user.displayName}`,
-            showConfirmButton: false,
-            timer: 1000,
-          });
-        } else {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: `welcome back ${user.displayName}`,
-            showConfirmButton: false,
-            timer: 1000,
-          });
-        }
-      });
+      .then((result) => {
+        const user = result.user;
+        const userInfo = {
+          name: user?.name,
+          email: user?.email,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: `welcome ${user.displayName}`,
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          } else {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: `welcome back ${user.displayName}`,
+              showConfirmButton: false,
+              timer: 1000,
+            });
+          }
+        });
 
-      navigate(from);
-    }).catch(error=>{
-     const email = error.customData.email;
-     Swal.fire({
-       icon: "error",
-       title: `${email}  Email / Password`,
-       text: `check Email & Password try again `,
-     });
-    })
-    
-    
+        navigate(from);
+      })
+      .catch((error) => {
+        const email = error.customData.email;
+        Swal.fire({
+          icon: "error",
+          title: `${email}  Email / Password`,
+          text: `check Email & Password try again `,
+        });
+      });
+  };
+
+  const handleAdminLogin = () => {
+    setEmail("admin@gmail.com");
+    setPassword("Iamadmin");
+  };
+
+  const handleModeratorLogin = () => {
+    setEmail("mod@gmail.com");
+    setPassword("Iammod");
   };
 
   return (
@@ -68,11 +74,27 @@ const Login = () => {
         <title>UniAid || Login</title>
       </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center "></div>
+        <div className="text-center"></div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <h1 className="text-5xl text-center pt-5 mx-9 font-bold">
             Login now!
           </h1>
+          {/* Admin and Moderator Buttons */}
+          
+          <div className="flex mt-10 justify-center items-center gap-2">
+            <h1 className="text-xl font-medium">Use As a</h1>
+            <button onClick={handleAdminLogin} className="badge badge-primary ">
+              Admin
+            </button>
+            OR
+            <button
+              onClick={handleModeratorLogin}
+              className="badge badge-accent"
+            >
+              Moderator
+            </button>
+          </div>
+
           <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -81,6 +103,8 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="email"
                 className="input input-bordered"
                 required
@@ -93,6 +117,8 @@ const Login = () => {
               <input
                 type="password"
                 name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="password"
                 className="input input-bordered"
                 required
