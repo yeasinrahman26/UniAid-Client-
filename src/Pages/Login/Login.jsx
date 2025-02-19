@@ -22,7 +22,8 @@ const Login = () => {
 
     // login validation
 
-    loginUser(email, password).then((result) => {
+    loginUser(email, password)
+    .then((result) => {
       const user = result.user;
       const userInfo = {
         name: user?.name,
@@ -49,7 +50,16 @@ const Login = () => {
       });
 
       navigate(from);
-    });
+    }).catch(error=>{
+     const email = error.customData.email;
+     Swal.fire({
+       icon: "error",
+       title: `${email}  Email / Password`,
+       text: `check Email & Password try again `,
+     });
+    })
+    
+    
   };
 
   return (

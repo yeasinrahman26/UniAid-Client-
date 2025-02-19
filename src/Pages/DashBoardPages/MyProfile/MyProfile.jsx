@@ -5,7 +5,7 @@ import UseMode from "../../../Hooks/UseMode";
 
 const MyProfile = () => {
   const { user } = useContext(AuthContext);
-  const { displayName, photoURL } = user || {};
+  const { displayName, photoURL,email } = user || {};
 
   const [isAdmin] = useAdmin();
   const [isMod] = UseMode();
@@ -23,9 +23,12 @@ const MyProfile = () => {
     md:flex-row justify-center items-center gap-5 mx-auto 
     md:p-16 p-5  rounded-xl shadow-2xl shadow-black bg-gradient-to-r from-red-500 to-orange-300 space-y-6"
     >
-      <div className="flex-1 space-y-5">
+      <div className="flex-1 space-y-3">
         <h1 className="text-3xl font-semibold hover:text-4xl text-gray-800">
           Welcome, {displayName}
+        </h1>
+        <h1 className="text-xl font-semibold hover:text-2xl text-gray-800">
+         Email:  {email}
         </h1>
         <div className="text-2xl  font-medium text-gray-700">
           <p>
