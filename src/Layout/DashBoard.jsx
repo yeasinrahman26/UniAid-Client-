@@ -61,11 +61,11 @@ const DashBoard = () => {
                     <span>Add Scholarship</span>
                   </NavLink>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/dashboard/allReviews">
                     <span>All reviews</span>
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink
                     to="/dashboard/allAppliedScholarship

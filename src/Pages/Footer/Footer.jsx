@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-      <footer className="flex justify-around items-center sm:footer-horizontal bg-neutral text-neutral-content p-10">
-        <div>
-          <Link to={"/"} className=" font-bold text-2xl">
+      <footer className="flex justify-around items-center sm:footer-horizontal bg-base-300  text-neutral-content p-10">
+        <div className="text-black">
+          <Link to={"/"} className=" font-bold text-black text-2xl">
             UniAid
           </Link>
           <p>
@@ -14,7 +14,7 @@ const Footer = () => {
             Providing reliable Scholarship since 1992
           </p>
         </div>
-        <div>
+        <div className="text-black">
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
             <a>
