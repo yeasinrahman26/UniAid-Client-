@@ -23,8 +23,8 @@ const AboutSection = () => {
         </div>
 
         {/* Right Side: UniAid Info */}
-        <div className="md:w-1/3 bg-red-500   rounded-lg shadow-lg p-6 md:ml-8 mt-8 md:mt-0">
-          <h3 className="text-2xl font-bold mb-1 "> UniAid</h3>
+        <div className="md:w-1/3 bg-red-500  rounded-lg shadow-lg p-6 md:ml-8 mt-8 md:mt-0">
+          <h3 className="text-2xl font-bold   mb-1 "> UniAid</h3>
           <p className="text-base">UniAid Scholarship System</p>
           <p className="text-base">
             Making scholarships accessible to all. Transparent scholarship

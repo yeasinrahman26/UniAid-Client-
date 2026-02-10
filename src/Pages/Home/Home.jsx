@@ -9,6 +9,7 @@ import FAQ from "./Faq/FAQ";
 import BlogSection from "./Blogs/BlogSection";
 import SuccessStories from "./SuccessStories/SuccessStories";
 import StudentResources from "./StudentResources/StudentResources";
+import Gallery from "./Gallery/Gallery";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);
@@ -24,9 +25,10 @@ const Home = () => {
       ) : (
         <>
           <Banner></Banner>
-            <TopScholarship></TopScholarship>
-          <div className="max-w-screen-2xl mx-auto lg:px-6 ">
+          <TopScholarship></TopScholarship>
+          <div className="max-w-screen-2xl mx-auto lg:px-6 space-y-16 py-16 ">
             <AboutSection></AboutSection>
+            <Gallery></Gallery>
             <BlogSection></BlogSection>
             <HowWeWork></HowWeWork>
             <StudentResources></StudentResources>

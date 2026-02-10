@@ -112,7 +112,7 @@ export default function BannerSlider() {
         ))}
       </div>
 
-      {/* Previous/Next Arrows */}
+      {/* Previous/Next Arrows
       <button
         onClick={() =>
           goToSlide((currentSlide - 1 + slides.length) % slides.length)
@@ -153,7 +153,7 @@ export default function BannerSlider() {
             d="M9 5l7 7-7 7"
           />
         </svg>
-      </button>
+      </button> */}
 
       {/* Font imports */}
       <style>{`
