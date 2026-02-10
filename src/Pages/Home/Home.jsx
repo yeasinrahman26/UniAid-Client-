@@ -14,7 +14,7 @@ import StudentResources from "./StudentResources/StudentResources";
 const Home = () => {
   const {loading}=useContext(AuthContext)
   return (
-    <div className="min-h-screen mt-16  space-y-16">
+    <div className="min-h-screen  space-y-16">
       <Helmet>
         <title>UniAid || Home</title>
       </Helmet>

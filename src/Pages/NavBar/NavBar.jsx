@@ -26,8 +26,8 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-gray-300 shadow-sm">
-      <div className="navbar-start">
+    <div className="navbar   max-w-screen-xl mx-auto  ">
+      <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -52,7 +52,10 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <Link to={"/"} className="ml-4 hover:bg-blue-600 hover:p-1 hover:rounded-xl hover:text-white font-bold text-2xl">
+        <Link
+          to={"/"}
+          className="ml-4 hover:bg-blue-600 hover:p-1 hover:rounded-xl hover:text-white font-bold text-2xl"
+        >
           UniAid
         </Link>
       </div>
