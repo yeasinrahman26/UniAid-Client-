@@ -10,9 +10,8 @@ import BlogSection from "./Blogs/BlogSection";
 import SuccessStories from "./SuccessStories/SuccessStories";
 import StudentResources from "./StudentResources/StudentResources";
 
-
 const Home = () => {
-  const {loading}=useContext(AuthContext)
+  const { loading } = useContext(AuthContext);
   return (
     <div className="min-h-screen  space-y-16">
       <Helmet>
@@ -25,13 +24,15 @@ const Home = () => {
       ) : (
         <>
           <Banner></Banner>
-          <TopScholarship></TopScholarship>
-          <AboutSection></AboutSection>
-          <BlogSection></BlogSection>
-          <HowWeWork></HowWeWork>
-          <StudentResources></StudentResources>
-          <FAQ></FAQ>
-          <SuccessStories></SuccessStories>
+          <div className="max-w-screen-2xl mx-auto lg:px-6 ">
+            <TopScholarship></TopScholarship>
+            <AboutSection></AboutSection>
+            <BlogSection></BlogSection>
+            <HowWeWork></HowWeWork>
+            <StudentResources></StudentResources>
+            <FAQ></FAQ>
+            <SuccessStories></SuccessStories>
+          </div>
         </>
       )}
     </div>
