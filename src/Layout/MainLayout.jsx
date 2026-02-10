@@ -12,7 +12,7 @@ const MainLayout = () => {
   return (
     <div>
       {!hideLayout && (
-        <div className="sticky shadow-lg top-0 left-0 right-0  z-10 bg-black backdrop-blur-2xl">
+        <div className="sticky shadow-lg top-0 left-0 right-0  z-50 bg-black backdrop-blur-2xl">
           <NavBar />
         </div>
       )}
