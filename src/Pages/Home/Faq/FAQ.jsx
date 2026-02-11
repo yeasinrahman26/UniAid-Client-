@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -132,6 +133,32 @@ const FAQ = () => {
             </div>
           ))}
         </div>
+        {/* Contact Section */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center bg-gradient-to-r from-[#412ad5] to-[#7c5ff0] p-10 rounded-2xl shadow-xl"
+        >
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Still have questions?
+          </h3>
+          <p className="text-white text-opacity-90 mb-6 max-w-2xl mx-auto">
+            Can&apos;t find the answer you&apos;re looking for? Our support team
+            is here to help.
+          </p>
+          <Link to="/contact&support">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 bg-white text-[#412ad5] font-bold rounded-lg hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+            >
+              Contact Support
+            </motion.button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

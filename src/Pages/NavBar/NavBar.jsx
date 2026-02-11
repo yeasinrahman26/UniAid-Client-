@@ -28,9 +28,26 @@ const NavBar = () => {
         className="font-semibold
        hover:bg-gray-100 hover:text-black rounded-lg lg:hover:bg-transparent lg:hover:border-b lg:rounded-none lg:hover:text-white "
       >
-        <Link className="font-semibold" to={"/dashBoard"}>
-          User Dashboard
+        <Link className="font-semibold" to={"/gallery"}>
+          Gallery
         </Link>
+      </li>
+
+      <li
+        className="font-semibold
+       hover:bg-gray-100 hover:text-black rounded-lg lg:hover:bg-transparent lg:hover:border-b lg:rounded-none lg:hover:text-white "
+      >
+        <NavLink className="font-semibold" to={"/faq"}>
+          FAQ
+        </NavLink>
+      </li>
+      <li
+        className="font-semibold
+       hover:bg-gray-100 hover:text-black rounded-lg lg:hover:bg-transparent lg:hover:border-b lg:rounded-none lg:hover:text-white "
+      >
+        <NavLink className="font-semibold" to={"/contact&support"}>
+          Contact & Support
+        </NavLink>
       </li>
     </>
   );

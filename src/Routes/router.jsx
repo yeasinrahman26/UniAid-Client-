@@ -17,6 +17,9 @@ import MyApplication from "../Pages/DashBoardPages/MyApplication/MyApplication";
 import MyReview from "../Pages/DashBoardPages/MyReview/MyReview";
 import AllReview from "../Pages/DashBoardPages/AllReview/AllReview";
 import AppliedScholarship from "../Pages/DashBoardPages/AppliedScholarship/AppliedScholarship";
+import RealGallery from "../Pages/RealGallery/RealGallery";
+import RealFaq from "../Pages/RealFaq/RealFaq";
+import ContactSupport from "../Pages/ContactSupport/ContactSupport";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +29,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "gallery",
+        element: <RealGallery></RealGallery>,
+      },
+      {
+        path: "faq",
+        element: <RealFaq></RealFaq>,
+      },
+      {
+        path: "contact&support",
+        element: <ContactSupport></ContactSupport>  ,
       },
       {
         path: "allScholarship",
@@ -40,7 +55,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://uni-aid-server-site.vercel.app/allScholarship/${params.id}`
+            `https://uni-aid-server-site.vercel.app/allScholarship/${params.id}`,
           ),
       },
       {
@@ -52,7 +67,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://uni-aid-server-site.vercel.app/allScholarship/${params.id}`
+            `https://uni-aid-server-site.vercel.app/allScholarship/${params.id}`,
           ),
       },
       {

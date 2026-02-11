@@ -122,7 +122,7 @@ const SuccessStories = () => {
         >
           {stories.map((story) => (
             <SwiperSlide key={story.id}>
-              <div className="bg-white/80 rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
+              <div className="bg-white/90 rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
                 {/* Quote Icon */}
                 <div className="mb-6">
                   <Quote className="w-10 h-10 text-[#4A40F7] opacity-20" />
