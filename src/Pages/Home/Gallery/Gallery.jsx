@@ -76,7 +76,7 @@ const Gallery = () => {
   };
 
   return (
-    <section className="py-16  bg-gradient-to-b from-gray-100 to-white">
+    <section className="py-16 px-4  bg-gradient-to-b from-gray-100 to-white">
       <div className=" mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12">
