@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import ScholarshipCard from "../../AllScholarship/ScholarshipCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import AuthContext from "../../../Auth/AuthContext";
 
 const TopScholarship = () => {
   const [top, setTop] = useState([]);
+  const { loading } = useContext(AuthContext);
 
   console.log(top);
 
@@ -332,7 +334,11 @@ const TopScholarship = () => {
           viewport={{ once: false, amount: 0.3 }}
         >
           {/* Check if top is an array with data */}
-          {top.length > 0 ? (
+          {loading ? (
+            <>
+              <span className="loading loading-bars loading-xl text-blue-500"></span>
+            </>
+          ) : top.length > 0 ? (
             top.slice(0, 4).map((item, index) => (
               <motion.div
                 key={item._id}

@@ -21,7 +21,7 @@ const Home = () => {
       </Helmet>
       {loading ? (
         <div className="absolute inset-0 bg-white flex justify-center items-center z-50">
-          <div className="spinner-border animate-spin w-16 h-16 border-4 border-blue-500 rounded-full"></div>
+          <span className="loading loading-bars loading-xl text-blue-500"></span>
         </div>
       ) : (
         <>

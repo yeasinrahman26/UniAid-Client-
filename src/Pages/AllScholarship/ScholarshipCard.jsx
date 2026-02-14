@@ -33,7 +33,9 @@ const ScholarshipCard = ({ item }) => {
 
   return (
     <Link to={`/allScholarship/${_id}`}>
-      <div className="group relative h-72 border-2 border-white overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:shadow-2xl">
+      <div className="group relative h-72 border-2 border-black/10
+       overflow-hidden rounded-2xl shadow-lg transition-all duration-300
+        hover:shadow-2xl">
         {/* Image layer - slides up on hover */}
         <div className="absolute  inset-0 transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
           <img
