@@ -130,7 +130,7 @@ const AllScholarship = () => {
             <div className="flex flex-col">
               {/* Heading part */}
               <motion.div
-                className="pl-6  text-start mb- "
+                className="pl-6  text-start  "
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}

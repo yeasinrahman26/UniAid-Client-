@@ -15,8 +15,8 @@ const PrivetRoutes = ({ children }) => {
 
   if (loading || isAdminLoading || isModLoading) {
     return (
-      <div className="flex flex-col py-52 justify-center items-center">
-        <span className="loading  text-red-400 loading-bars loading-lg"></span>
+      <div className="flex flex-col min-h-screen py-52 justify-center items-center">
+        <span className="loading  text-blue-500 loading-bars loading-lg"></span>
       </div>
     );
   }
