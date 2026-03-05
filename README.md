@@ -1,6 +1,4 @@
-Here is your **README.md** file in Markdown format:  
 
----
 
 # 🎓 UniAid Client Site  
 
