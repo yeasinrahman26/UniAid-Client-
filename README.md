@@ -4,7 +4,7 @@ Here is your **README.md** file in Markdown format:
 
 # 🎓 UniAid Client Site  
 
-![UniAid Banner](https://i.ibb.co.com/d0drrYy6/Screenshot-2025-02-05-020448.png)  
+![UniAid Banner](https://i.ibb.co.com/xSYH1Hrg/screencapture-uni-aid-web-app-2026-03-06-02-12-11.png)  
 
 ## Introduction  
 
