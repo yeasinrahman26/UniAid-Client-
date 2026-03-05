@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ScholarshipCard from "../../AllScholarship/ScholarshipCard";
 import { useContext, useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import AuthContext from "../../../Auth/AuthContext";
 
 const TopScholarship = () => {

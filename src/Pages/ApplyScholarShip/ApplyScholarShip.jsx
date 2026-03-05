@@ -4,7 +4,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import AuthContext from "../../Auth/AuthContext";
 import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   Phone,
   Image,

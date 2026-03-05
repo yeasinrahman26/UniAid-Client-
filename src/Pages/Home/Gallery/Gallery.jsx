@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);

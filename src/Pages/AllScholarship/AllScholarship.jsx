@@ -3,7 +3,7 @@ import useAllScholarship from "../../Hooks/useAllScholarship";
 import ScholarshipCard from "./ScholarshipCard";
 import AuthContext from "../../Auth/AuthContext";
 import ScholarshipBanner from "./ScholarshipBanner/ScholarshipBanner";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const AllScholarship = () => {
   const [scholarship] = useAllScholarship();

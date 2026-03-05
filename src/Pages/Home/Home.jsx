@@ -10,7 +10,7 @@ import FAQ from "./Faq/FAQ";
 import SuccessStories from "./SuccessStories/SuccessStories";
 import StudentResources from "./StudentResources/StudentResources";
 import Gallery from "./Gallery/Gallery";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const Home = () => {
   const { loading } = useContext(AuthContext);

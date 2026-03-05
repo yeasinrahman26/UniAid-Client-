@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   BookOpen,
   Video,
@@ -216,8 +216,6 @@ const StudentResources = () => {
             );
           })}
         </div>
-
-      
       </div>
     </section>
   );
